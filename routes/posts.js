@@ -29,11 +29,12 @@ router.get('/', function(req, res){
     });
 });
 
-router.get( '/list' , (req, res) => {
-    PostModel.find( { } , (err , posts) => {
-        res.json( { posts : posts , } );
+router.get('/list', function(req, res){
+    PostModel.find( {}, function(err, posts){        
+        res.json({ posts : posts });
     });
 });
+
 
 router.get('/write', loginRequired ,function(req, res){
     res.render('posts/form' , { post : ""});
